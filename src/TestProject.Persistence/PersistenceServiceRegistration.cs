@@ -14,9 +14,6 @@ namespace TestProject.Persistence
                 options.UseSqlServer(configuration.GetConnectionString("TestAppConnectionString")));
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<IAutoPartRepository, AutoPartRepository>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
             return services;
         }
     }

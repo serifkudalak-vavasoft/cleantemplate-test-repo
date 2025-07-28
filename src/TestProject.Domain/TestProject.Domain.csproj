@@ -8,9 +8,6 @@
 
 <!-- #if (withsample) -->
 <!-- #else (withsample) -->
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
 <!-- #endif -->
 
 

@@ -22,6 +22,7 @@
 <!-- #else (withsample) -->
 	<ItemGroup>
 	  <Folder Include="Configurations\" />
+	  <Folder Include="Configurations\" />
 	</ItemGroup>
 <!-- #endif -->
 

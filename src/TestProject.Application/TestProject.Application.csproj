@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Orders\**" />
+    <EmbeddedResource Remove="Features\Orders\**" />
+    <None Remove="Features\Orders\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TestProject.Domain\TestProject.Domain.csproj" />
   </ItemGroup>
 
@@ -21,12 +27,6 @@
 	</ItemGroup>
 
 <!-- #if (withsample) -->
-	<ItemGroup>
-	  <Folder Include="Features\Orders\Commands\" />
-	</ItemGroup>
 <!-- #endif -->
-	<ItemGroup>
-	  <Folder Include="Profiles\" />
-	</ItemGroup>
 
 </Project>

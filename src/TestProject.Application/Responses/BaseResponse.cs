@@ -1,6 +1,6 @@
 ﻿namespace TestProject.Application.Responses
 {
-    public class BaseResponse
+    public class BaseResponse<T>
     {
         public BaseResponse()
         {
@@ -18,8 +18,36 @@
             Message = message;
         }
 
-        public bool Success { get; set; }
+        public BaseResponse(T data, string message = "İşlem başarılı")
+        {
+            Success = true;
+            Message = message;
+            Data = data;
+        }
+
+        public static BaseResponse<T> Fail(string message, List<string>? errors = null)
+        {
+            return new BaseResponse<T>
+            {
+                Success = false,
+                Message = message,
+                ValidationErrors = errors
+            };
+        }
+
+        public static BaseResponse<T> SuccessResponse(T data, string message = "İşlem başarılı")
+        {
+            return new BaseResponse<T>
+            {
+                Success = true,
+                Message = message,
+                Data = data
+            };
+        }
+
+        public bool Success { get; set; } = true;
         public string Message { get; set; } = string.Empty;
+        public T? Data { get; set; }
         public List<string>? ValidationErrors { get; set; }
     }
 }

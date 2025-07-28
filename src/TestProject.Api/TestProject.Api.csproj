@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>b7dd18c9-5010-4a2c-acb0-0205a6a7be69</UserSecretsId>
   </PropertyGroup>
 
 	<ItemGroup>
@@ -32,9 +33,6 @@
 	</ItemGroup>
 
 <!-- #if (withsample) -->
-	<ItemGroup>
-	  <Folder Include="Controllers\" />
-	</ItemGroup>
 <!-- #endif -->
 
 	<ItemGroup>

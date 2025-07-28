@@ -2,6 +2,7 @@
 using TestProject.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using TestProject.Domain.Entities;
 namespace TestProject.Persistence
 {
     public class TestAppDbContext : DbContext
@@ -18,6 +19,10 @@ namespace TestProject.Persistence
         {
             _loggedInUserService = loggedInUserService;
         }
+
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
         }

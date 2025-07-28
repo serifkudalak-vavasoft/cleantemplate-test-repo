@@ -9,6 +9,8 @@ using TestProject.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using TestProject.Application.Contracts.Persistence;
+using TestProject.Persistence.Repositories;
 
 namespace TestProject.Api
 {
@@ -26,6 +28,9 @@ namespace TestProject.Api
             builder.Services.AddScoped<ILoggedInUserService, LoggedInUserService>();
 
             builder.Services.AddHttpContextAccessor();
+
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
             builder.Services.AddControllers();
 

@@ -36,6 +36,7 @@
 <!-- #else (withsample) -->
 	<ItemGroup>
 	  <Folder Include="Base\" />
+	  <Folder Include="Base\" />
 	</ItemGroup>
 <!-- #endif -->
 

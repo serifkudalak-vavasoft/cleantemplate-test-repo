@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace TestProject.Persistence.Repositories;
 
@@ -27,6 +28,11 @@ public class BaseRepository<T> : IAsyncRepository<T> where T : class
         return await _dbContext.Set<T>().ToListAsync();
     }
 
+    public async Task<IReadOnlyList<T>> ListAsync(Expression<Func<T, bool>> predicate)
+    {
+        return await _dbContext.Set<T>().Where(predicate).ToListAsync();
+    }
+
     public async Task<T> AddAsync(T entity)
     {
         await _dbContext.Set<T>().AddAsync(entity);
@@ -38,6 +44,15 @@ public class BaseRepository<T> : IAsyncRepository<T> where T : class
     public async Task UpdateAsync(T entity)
     {
         _dbContext.Entry(entity).State = EntityState.Modified;
+        await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task UpdateRangeAsync(IReadOnlyList<T> entities)
+    {
+        foreach (var item in entities)
+        {
+            _dbContext.Entry(item).State = EntityState.Modified;
+        }
         await _dbContext.SaveChangesAsync();
     }
 
